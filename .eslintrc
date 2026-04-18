@@ -9,6 +9,11 @@
     "plugins": [
         "jest"
     ],
+    "settings": {
+        "react": {
+            "version": "999.999.999"
+        }
+    },
     "rules": {
         "import/no-commonjs": 0,
         "camelcase": 0,
