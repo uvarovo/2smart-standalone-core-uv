@@ -12,6 +12,8 @@ COPY package-lock.json package-lock.json
 COPY app.js app.js
 COPY runner.js runner.js
 
-RUN npm i --production
+RUN npm i --production && \
+    sed -i 's/await this.getExtensionConfigObj(packageName);/await this.getExtensionConfigObj(packageName, type);/' \
+    node_modules/extensions-manager-sdk/src/npm/index.js
 
 CMD npm start
