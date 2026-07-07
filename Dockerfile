@@ -5,6 +5,10 @@ RUN apk update && apk upgrade && \
 
 WORKDIR /app
 
+# Use HTTPS for GitHub git dependencies so npm install works inside
+# containers that don't have an SSH key for git@github.com.
+RUN git config --global url."https://github.com/".insteadOf "git@github.com:"
+
 COPY lib lib
 COPY etc etc
 COPY package.json package.json
