@@ -1,0 +1,11 @@
+[Unit]
+Description=Run 2smart watchdog every 2 minutes
+
+[Timer]
+OnBootSec=4min
+OnUnitActiveSec=2min
+AccuracySec=15s
+Unit=2smart-watchdog.service
+
+[Install]
+WantedBy=timers.target

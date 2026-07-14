@@ -1,0 +1,7 @@
+[Unit]
+Description=2smart watchdog (periodic: ensure containers, detect EMQX restart, snapshot orphan retained)
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/2smart-watchdog.sh periodic

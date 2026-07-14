@@ -1,0 +1,12 @@
+[Unit]
+Description=2smart watchdog (boot recovery: containers up + authz race + orphan retained)
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/sleep 30
+ExecStart=/usr/local/bin/2smart-watchdog.sh boot
+
+[Install]
+WantedBy=multi-user.target
